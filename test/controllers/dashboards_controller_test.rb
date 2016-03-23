@@ -6,4 +6,9 @@ class DashboardsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "dashboard index is the root page" do
+    :root
+    assert_response :success
+  end
+
 end
