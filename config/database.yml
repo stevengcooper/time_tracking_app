@@ -6,15 +6,15 @@
 #
 development:
   adapter: sqlite3
-  database: my_database_development
   pool: 5
   timeout: 5000
+  database: db/development.sqlite3
 
 test:
   adapter: sqlite3
-  database: my_database_test
   pool: 5
   timeout: 5000
+  database: db/test.sqlite3
 
 production:
   adapter: postgresql
