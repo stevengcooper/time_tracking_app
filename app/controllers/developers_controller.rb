@@ -1,5 +1,6 @@
 class DevelopersController < ApplicationController
   before_action :set_developer, only: [:edit, :update, :destroy]
+  before_action :authenticate 
 
   def index
     @developers = Developer.all

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  root 'developers#index'
 
-  root 'dashboards#index'
+  get 'sessions/new'
+  get 'sessions/edit'
+  get 'sessions/update'
+  get 'sessions/destroy'
 
   resources :projects
 

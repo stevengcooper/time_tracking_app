@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate
+  before_action :set_developer, only: [:edit, :update, :destroy]
+  
   def index
   end
 
@@ -13,6 +16,6 @@ class ProjectsController < ApplicationController
 
 
   def show
-    
+
   end
 end
