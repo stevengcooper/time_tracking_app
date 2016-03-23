@@ -3,6 +3,5 @@ class TimeEntry < ActiveRecord::Base
   belongs_to :project
   validates :duration, presence: true
   validates :developer_id, presence: true
-  validates :date, presence: true
-  validates :project_id, presence: true 
+  validates :project_id, presence: true
 end

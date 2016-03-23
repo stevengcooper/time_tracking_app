@@ -11,6 +11,8 @@ class ProjectsController < ApplicationController
   def delete
   end
 
+
   def show
+    
   end
 end

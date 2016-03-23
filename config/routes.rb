@@ -1,30 +1,15 @@
 Rails.application.routes.draw do
-  get 'projects/index'
-  get 'projects/new'
-  post 'projects/create'
-  get 'projects/edit'
-  patch 'projects/update'
-  delete 'projects/delete'
-  get 'projects/show'
 
-  get 'dashboards/index'
   root 'dashboards#index'
 
-  get 'time_entries/new'
-  patch 'time_entries/update'
-  post 'time_entries/create'
-  get 'time_entries/edit'
-  delete 'time_entries/delete'
-  get 'time_entries/show'
-  get 'time_entries/index'
+  resources :projects
 
-  get 'developers/new'
-  patch 'developers/update'
-  get 'developers/index'
-  post 'developers/create'
-  get 'developers/edit'
-  delete 'developers/delete'
-  get 'developers/show'
+  get 'dashboards/index'
+
+  resources :time_entries
+
+  resources :developers
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
