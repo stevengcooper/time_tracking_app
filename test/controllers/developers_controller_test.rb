@@ -36,7 +36,7 @@ class DevelopersControllerTest < ActionController::TestCase
 
   test "should update developer" do
     patch :update, id: @developer, developer: { email: @developer.email, first_name: @developer.first_name, last_name: @developer.last_name, password_digest: @developer.password_digest }
-    assert_redirected_to developer_path(assigns(:developer))
+    assert_redirected_to developers_index_path(assigns(:developer))
   end
 
   test "should destroy developer" do
@@ -44,6 +44,6 @@ class DevelopersControllerTest < ActionController::TestCase
       delete :delete, id: @developer
     end
 
-    assert_redirected_to developers_path
+    assert_redirected_to developers_index_path
   end
 end

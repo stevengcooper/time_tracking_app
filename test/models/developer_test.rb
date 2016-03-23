@@ -13,10 +13,12 @@ class DeveloperTest < ActiveSupport::TestCase
   test "Developer must have email, password, and name" do
     developer1 = Developer.new()
     refute developer1.save
+    assert developers(:one).id
   end
 
-  # test "Developer has many time entries" do
-  # end
+  test "Developer has name" do
+    assert_equal "Billy Tables", developers(:one).name
+  end
 
 
 
