@@ -1,16 +1,20 @@
 Rails.application.routes.draw do
   get 'projects/index'
-  get 'projects/create'
+  get 'projects/new'
+  post 'projects/create'
   get 'projects/edit'
-  get 'projects/delete'
+  patch 'projects/update'
+  delete 'projects/delete'
   get 'projects/show'
 
   get 'dashboards/index'
   root 'dashboards#index'
 
-  get 'time_entries/create'
+  get 'time_entries/new'
+  patch 'time_entries/update'
+  post 'time_entries/create'
   get 'time_entries/edit'
-  get 'time_entries/delete'
+  delete 'time_entries/delete'
   get 'time_entries/show'
   get 'time_entries/index'
 
