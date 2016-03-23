@@ -7,7 +7,7 @@ class DeveloperTest < ActiveSupport::TestCase
   test "Developer email is unique" do
     j = Developer.new(first_name: "Jerry", last_name: "Collins", email: "billy@gmail.com", password: BCrypt::Password.create("monkey"))
     assert "billy@gmail.com", developers(:one).email
-    refute m.save
+    refute j.save
   end
 
   test "Developer must have email, password, and name" do
