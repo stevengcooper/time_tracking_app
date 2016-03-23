@@ -41,6 +41,6 @@ class TimeEntriesController < ApplicationController
     end
 
     def time_entry_params
-      params.require(:time_entry).permit(:duration, :developer_id, :project_id)
+      params.require(:time_entry).permit(:duration, :date, :developer_id, :project_id)
     end
 end

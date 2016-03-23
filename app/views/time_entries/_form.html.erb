@@ -5,6 +5,11 @@
     <%= f.text_field :duration %>
   </div>
   <div class="form">
+    <%= f.label :date %>
+    <%=  f.date_select :date %>
+    <% f.hidden_field :date %>
+  </div>
+  <div class="form">
     <%= f.label :developer_id %>
     <%= f.collection_select :developer_id, Developer.all, :id, :name %>
     <% f.hidden_field :developer_id %>
