@@ -4,10 +4,10 @@ one:
   first_name: "Billy"
   last_name: "Tables"
   email: "billy@gmail.com"
-  password_digest: password = <%= BCrypt::Password.create("monkey") %>
+  password_digest: password = <%= BCrypt::Password.create("#{ENV['PASSWORD']}") %>
 
 two:
   first_name: "Sally"
   last_name: "Tables"
   email: "sally@gmail.com"
-  password_digest: password = <%= BCrypt::Password.create("monkey") %>
+  password_digest: password = <%= BCrypt::Password.create("#{ENV['PASSWORD']}") %>

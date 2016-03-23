@@ -15,5 +15,5 @@ end
 end
 
 10.times do |i|
-  TimeEntries.create!(duration: Faker::Number.between(1, 10), date: Faker::Date.backward(2), project_id: Faker::Number.between(1, 10), developer_id: Faker::Number.between(1, 10))
+  TimeEntry.create!(duration: rand(2..20), date: Faker::Date.backward(2), project_id: i += 1, developer_id: i += 0)
 end
