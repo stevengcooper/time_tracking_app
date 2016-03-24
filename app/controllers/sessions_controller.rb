@@ -23,8 +23,8 @@ class SessionsController < ApplicationController
 
   def update
     @developer = Developer.find_by(email: user_params[:email])
-    if developer && developer.authenticate(user_params[:password])
-      developer.update(password: session_params[:new_password])
+    if @developer && @developer.authenticate(user_params[:password])
+      @developer.update(password: session_params[:new_password])
       redirect_to root_path, notice: "Password has been changed"
     else
       flash.now[:alert] = "Old Password Does Not Match!"
@@ -44,6 +44,6 @@ class SessionsController < ApplicationController
     end
 
     def set_developer
-      @developer = Developer.find(params[:email, :password])
+      @developer = Developer.find(params[:id])
     end
 end
