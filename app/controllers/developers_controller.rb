@@ -1,6 +1,6 @@
 class DevelopersController < ApplicationController
   before_action :set_developer, only: [:edit, :update, :destroy]
-  before_action :authenticate
+  before_action :authenticate, except: [:new, :create]
 
   def index
     @developers = Developer.all
@@ -9,7 +9,7 @@ class DevelopersController < ApplicationController
   def create
     @developer = Developer.new(developer_params)
     if @developer.save
-      redirect_to developers_index_path, notice: "Developer was created with success."
+      redirect_to new_path, notice: "Developer was created with success."
     else
       render :new
     end
