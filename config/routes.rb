@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
   get 'sessions/edit'
-  get 'sessions/update'
-  get 'sessions/destroy'
+  patch 'sessions/update'
+  delete 'logout' => 'sessions/destroy'
+  post 'login' => 'sessions#create'
 
   resources :projects
 

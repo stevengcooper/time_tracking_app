@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :authenticate, only: [:edit, :update]
+  # before_action :authenticate, only: [:edit, :update, :destroy]
 
   def new
     @developer = Developer.new
@@ -11,10 +11,11 @@ class SessionsController < ApplicationController
 
   def create
     @developer = Developer.find_by(email: params[:email])
-    if developer && developer.authenticate(params[:password])
-      session[:user_id] = developer.id
+    if @developer && @developer.authenticate(params[:password])
+      session[:user_id] = @developer.id
       redirect_to root_path, notice: "Login Great Success"
     else
+      byebug
       flash.now[:alert] = "Incorrect login information.  Please try again"
       render :new
     end
@@ -37,7 +38,12 @@ class SessionsController < ApplicationController
     redirect_to dashboards_index_path, notice: "Logged out"
   end
 
-  private def session_params
-    params.require(:form_fields).permit(:email, :password)
-  end
+  private
+    def session_params
+      params.require(:form_fields).permit(:email, :password)
+    end
+
+    def set_developer
+      @developer = Developer.find(params[:email, :password])
+    end
 end

@@ -1,12 +1,2 @@
 <h1>Log In </h1>
-<%= form_for @developer do |f| %>
-  <div class="form">
-    <%= f.email_field :email %>
-  </div>
-  <div class="form">
-    <%= f.password_field :password %>
-  </div>
-  <div class="link">
-    <%= f.submit "Login" %>
-  </div>
-<% end %>
+<%= render 'form' %>
