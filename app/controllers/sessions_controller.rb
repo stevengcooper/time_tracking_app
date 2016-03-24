@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  # before_action :authenticate, only: [:edit, :update, :destroy]
+  before_action :authenticate, only: [:edit, :update, :delete]
 
   def new
     @developer = Developer.new
@@ -15,7 +15,6 @@ class SessionsController < ApplicationController
       session[:user_id] = @developer.id
       redirect_to root_path, notice: "Login Great Success"
     else
-      byebug
       flash.now[:alert] = "Incorrect login information.  Please try again"
       render :new
     end
@@ -32,7 +31,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy
+  def delete
     session[:user_id] = nil
     session[:session_id] = nil
     redirect_to dashboards_index_path, notice: "Logged out"

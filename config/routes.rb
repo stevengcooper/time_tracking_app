@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   root 'developers#index'
 
-  get 'sessions/new'
-  get 'sessions/edit'
-  patch 'sessions/update'
-  delete 'logout' => 'sessions/destroy'
+  get 'index' => 'sessions#index'
   post 'login' => 'sessions#create'
+  get 'edit' => 'sessions#edit'
+  get 'new' => 'sessions#new'
+  get 'show' => 'sessions#show'
+  patch 'update' => 'sessions#update'
+  delete 'logout' => 'sessions#delete'
 
   resources :projects
 
