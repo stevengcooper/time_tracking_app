@@ -23,7 +23,6 @@ class TimeEntriesController < ApplicationController
 
   def index
     @time_entries = TimeEntry.where(developer_id: session[:user_id])
-    # @projects = Project.where(id: session[:user_id]).time_entries.where(project_id: session[:user_id])
   end
 
   def show

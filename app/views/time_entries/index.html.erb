@@ -14,7 +14,7 @@
     <tbody>
       <% @time_entries.each do |time_entry| %>
         <tr>
-          <td><%= time_entry.project_id %></td>
+          <td><%= time_entry.project.name %></td>
           <td><%= time_entry.duration %></td>
           <td><%= time_entry.date %></td>
           <td><%= link_to 'Show', time_entry %></td>
