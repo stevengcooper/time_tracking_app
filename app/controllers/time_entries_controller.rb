@@ -11,18 +11,19 @@ class TimeEntriesController < ApplicationController
     if @time_entry.save
       redirect_to developers_path, notice: 'Time Entry was successfully created.'
     else
-      flash.now[:notice]= "ooooo"
+      flash.now[:notice]= "Fill Every Field!"
       render :new
     end
   end
 
   def delete
     @time_entry.destroy
-    redirect_to root_path, notice: 'time_entry was destroyed with extreem prejudice.'
+    redirect_to root_path, notice: 'Time Entry destroyed with extreem prejudice.'
   end
 
   def index
-    @time_entries = TimeEntry.all
+    @time_entries = TimeEntry.where(developer_id: session[:user_id])
+    # @projects = Project.where(id: session[:user_id]).time_entries.where(project_id: session[:user_id])
   end
 
   def show
@@ -30,7 +31,7 @@ class TimeEntriesController < ApplicationController
 
   def update
     if @time_entry.update(time_entry_params)
-      redirect_to time_entries_index_path, "Time entry was created with success."
+      redirect_to time_entries_index_path, "Time Entry updated with success!"
     else
       render :index
     end
