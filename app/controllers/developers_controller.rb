@@ -28,7 +28,7 @@ class DevelopersController < ApplicationController
 
   def update
     if @developer.update(developer_params)
-      redirect_to developers_index_path, "Developer was created with success."
+      redirect_to developers_index_path, notice: "Developer was created with success."
     else
       render :index
     end
