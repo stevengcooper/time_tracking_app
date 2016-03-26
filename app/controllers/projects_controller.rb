@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @project.destroy
     redirect_to developers_path, notice: 'Project was destroyed with extreem prejudice.'
   end

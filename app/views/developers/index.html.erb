@@ -16,3 +16,28 @@
   <%= link_to "Puruse Your Time", time_entries_path %>
 </div>
 <br>
+<% if @developer %>
+  <table>
+    <thead>
+      <tr>
+        <th>Developer Name </th>
+        <th>Email</th>
+        <th>Weekly Hours </th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @developer.each do |developer| %>
+        <tr>
+          <td><%= developer.name %></td>
+          <td><%= developer.email %></td>
+          <td><%= developer.weekly_hours %></td>
+          <td><%= link_to 'Show', developer %></td>
+          <td><%= link_to 'Edit', edit_developer_path(developer) %></td>
+          <td><%= link_to 'Destroy', developer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

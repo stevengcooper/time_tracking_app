@@ -11,3 +11,9 @@ two:
   date: 2016-03-22
   developer_id: 2
   project_id: 2
+
+three:
+  duration: 2
+  date: 2016-03-1
+  developer_id: 2
+  project_id: 2

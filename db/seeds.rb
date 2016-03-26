@@ -15,5 +15,5 @@ end
 end
 
 100.times do |i|
-  TimeEntry.create!(duration: rand(2..20), date: Faker::Date.backward(7), project_id: rand(1..10), developer_id: rand(1..10))
+  TimeEntry.create!(duration: rand(2..20), date: Faker::Date.backward(14), project_id: rand(1..10), developer_id: rand(1..10))
 end

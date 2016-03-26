@@ -3,7 +3,8 @@ class DevelopersController < ApplicationController
   before_action :authenticate, except: [:new, :create]
 
   def index
-    @developers = Developer.where(id: session[:user_id])
+    @developer = Developer.where(id: session[:user_id])
+    @developers = Developer.all
   end
 
   def create
