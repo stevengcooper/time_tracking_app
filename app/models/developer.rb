@@ -14,6 +14,9 @@ class Developer < ActiveRecord::Base
 
   def weekly_hours
     time_entries.where(date: (Date.today.beginning_of_week..Date.today.end_of_week)).sum(:duration)
+  end
 
+  def over_forty?
+    weekly_hours > 40
   end
 end
