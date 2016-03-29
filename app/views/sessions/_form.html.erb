@@ -1,5 +1,5 @@
 
-<%= form_for @developer, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+<%= form_for @developer, url: {action: "create"} do |f| %>
   <div class="form">
     <%= email_field_tag :email, nil, placeholder: "Email" %>
   </div>
