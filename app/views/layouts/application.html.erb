@@ -5,11 +5,19 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <div>
-    <%= link_to "Logout", logout_path, method: :delete %>
+  <!--<div class="wrapper-for-content-outside-of-footer">
+   Uncomment this whole section for a sticky footer. The content of the page should be inside of this .wrapper-for-content-outside-of-footer
+</div>-->
+
+<footer class="footer-2" role="contentinfo">
+  <div class="footer-logo">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
   </div>
-  <h1>Welcome Home <%= "#{Developer.where(id: session[:user_id]).name}" %></h1>
-  <br>
+      <ul class="header-title">
+        <h1>Time Tracker</h1>
+      </ul>
+</footer>
+
 </head>
 <body>
 

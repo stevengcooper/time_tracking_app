@@ -25,11 +25,12 @@ class DevelopersController < ApplicationController
   end
 
   def show
+    @developer = Developer.where(id: params[:id])
   end
 
   def update
     if @developer.update(developer_params)
-      redirect_to developers_index_path, notice: "Developer was created with success."
+      redirect_to developers_path, notice: "Developer was created with success."
     else
       render :index
     end

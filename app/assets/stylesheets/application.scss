@@ -21,6 +21,25 @@
   color: red;
 }
 
+.header-title {
+  color: white;
+}
+
+.login-page {
+  padding-left: 520px;
+  padding-bottom: 100px;
+  padding-top: 100px;
+  background-color: beige;
+}
+.link {
+  text-decoration: none;
+  color: #40526b;
+}
+.table-headers {
+  color: #40526b;
+}
+
+
 .centered-navigation {
   $base-border-radius: 3px !default;
   $dark-gray: #333 !default;
