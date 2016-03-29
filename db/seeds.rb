@@ -11,9 +11,9 @@
 end
 
 10.times do |i|
-  Project.create!(name: Faker::App.name, allowed_hours: Faker::Number.between(1, 10))
+  Project.create!(name: Faker::App.name, allowed_hours: Faker::Number.between(15, 50))
 end
 
 100.times do |i|
-  TimeEntry.create!(duration: rand(2..20), date: Faker::Date.backward(14), project_id: rand(1..10), developer_id: rand(1..10))
+  TimeEntry.create!(duration: rand(2..6), date: Faker::Date.backward(14), project_id: rand(1..10), developer_id: rand(1..10))
 end
