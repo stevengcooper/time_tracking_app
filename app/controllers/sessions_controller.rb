@@ -21,13 +21,13 @@ class SessionsController < ApplicationController
   end
 
   def update
-    @developer = Developer.find_by(email: user_params[:email])
-    if @developer && @developer.authenticate(user_params[:password])
+    @developer = Developer.find_by(email: params[:email])
+    if @developer && @developer.authenticate(params[:password])
       @developer.update(password: session_params[:new_password])
       redirect_to root_path, notice: "Password has been changed"
     else
       flash.now[:alert] = "Old Password Does Not Match!"
-      render :edit
+      redirect_to root_path
     end
   end
 
