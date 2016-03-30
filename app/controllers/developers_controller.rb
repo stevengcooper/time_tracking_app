@@ -10,9 +10,10 @@ class DevelopersController < ApplicationController
   def create
     @developer = Developer.new(developer_params)
     if @developer.save
-      redirect_to new_path, notice: "Developer was created with success."
+      redirect_to root_path, notice: "Developer was created with success."
     else
-      render :new
+      flash.now[:alert] = "Something went wrong. Sorry for your loss of time."
+      redirect_to dashboards_index_path
     end
   end
 

@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       redirect_to root_path, notice: "Login Great Success"
     else
       flash.now[:alert] = "Incorrect login information.  Please try again"
-      render :new
+      redirect_to new_path
     end
   end
 
