@@ -1,5 +1,5 @@
 
-<%= form_for @developer, url: {action: "create"} do |f| %>
+<%= form_tag login_path  do |f| %>
   <div class="form">
     <%= email_field_tag :email, nil, placeholder: "Email" %>
   </div>
