@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   before_action :authenticate, only: [:edit, :update, :delete]
   before_action :authenticate, except: [:new, :create]
+  
 
   def new
     @developer = Developer.new
