@@ -13,6 +13,7 @@
 
 
  */
+
  @import "bourbon";
  @import "neat";
 
@@ -21,10 +22,30 @@
   color: red;
 }
 
+
+.table-body {
+  padding-left: 60px;
+}
+.table-head {
+  padding-left: 40px;
+}
+
 .header-title {
   color: white;
 }
+.time-page {
+  padding-left: 380px;
+  padding-bottom: 100px;
+  padding-top: 100px;
+  background-color: beige;
 
+}
+.root-page {
+  padding-left: 280px;
+  padding-bottom: 100px;
+  padding-top: 100px;
+  background-color: beige;
+}
 .login-page {
   padding-left: 520px;
   padding-bottom: 100px;
@@ -320,7 +341,7 @@
   display: inline-block;
 
   .footer-logo {
-    margin-right: 1em;
+    margin-left: 3px;
     margin-bottom: 1em;
 
     @include media($large-screen) {
