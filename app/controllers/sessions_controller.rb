@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   before_action :authenticate, only: [:edit, :update, :delete]
   before_action :authenticate, except: [:new, :create]
-  
+
 
   def new
     @developer = Developer.new
@@ -12,9 +12,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @developer = Developer.find_by(email: params[:email])
-    if @developer && @developer.authenticate(params[:password])
-      session[:user_id] = @developer.id
+    developer = Developer.find_by(email: params[:email])
+    if developer && developer.authenticate(params[:password])
+      session[:user_id] = developer.id
       redirect_to root_path, notice: "Login Great Success"
     else
       flash.now[:alert] = "Incorrect login information.  Please try again"
@@ -23,9 +23,9 @@ class SessionsController < ApplicationController
   end
 
   def update
-    @developer = Developer.find_by(email: params[:email])
-    if @developer && @developer.authenticate(params[:password])
-      @developer.update(password: session_params[:new_password])
+    developer = Developer.find_by(email: params[:email])
+    if developer && developer.authenticate(params[:password])
+      developer.update(password: session_params[:new_password])
       redirect_to root_path, notice: "Password has been changed"
     else
       flash.now[:alert] = "Old Password Does Not Match!"
