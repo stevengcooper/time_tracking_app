@@ -20,8 +20,8 @@ class DevelopersController < ApplicationController
   def edit
   end
 
-  def delete
-    @developer.destroy
+  def destroy
+    @developer.delete
     redirect_to root_path, notice: 'Developer was destroyed with extreem prejudice.'
   end
 
