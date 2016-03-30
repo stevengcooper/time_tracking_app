@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   before_action :authenticate, only: [:edit, :update, :delete]
   before_action :authenticate, except: [:new, :create]
-
+  
 
   def new
     @developer = Developer.new
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       redirect_to root_path, notice: "Login Great Success"
     else
       flash.now[:alert] = "Incorrect login information.  Please try again"
-      redirect_to new_path
+      redirect_to root_path
     end
   end
 
