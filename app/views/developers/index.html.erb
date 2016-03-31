@@ -1,9 +1,4 @@
-<% if flash[:notice] %>
-  <div id="notice"><%= flash[:notice] %></div>
-<% end %>
-<% if flash.now[:alert] %>
-  <div id="alert"><%= flash.now[:alert] %></div>
-<% end %>
+
 <header class="centered-navigation" role="banner">
   <div class="centered-navigation-wrapper">
     <a href="javascript:void(0)" class="mobile-logo">
@@ -43,8 +38,10 @@
               <td><%= developer.name %></td>
               <td><%= developer.email %></td>
               <td class="<%= "over" if developer.over_forty? %>"><%= developer.weekly_hours %></td>
-                <td><button><%= link_to 'Edit', edit_developer_path(developer)%></button></td>
+              <td><button><%= link_to 'Edit', edit_developer_path(developer)%></button></td>
+              <% if developer.weekly_hours == 0 %>
                 <td><button><%= link_to 'Destroy', developer, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>

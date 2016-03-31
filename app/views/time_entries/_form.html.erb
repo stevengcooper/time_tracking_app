@@ -12,7 +12,7 @@
   <div class="form">
     <%= f.label :developer_id %>
     <%= f.collection_select :developer_id, Developer.where(id: session[:user_id]), :id, :name %>
-    <% f.hidden_field :developer_id %>
+    <%= f.hidden_field :developer_id %>
   </div>
   <div class="form">
     <%= f.label :project_id %>

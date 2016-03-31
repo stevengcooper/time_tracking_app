@@ -20,7 +20,9 @@
             <td class="<%= "over" if project.over_maximum? %>"><%= project.hours_logged %></td>
             <td><%= link_to 'Show', project %></td>
             <td><%= link_to 'Edit', edit_project_path(project) %></td>
-            <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% if project.hours_logged == 0 %>
+              <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
