@@ -10,7 +10,8 @@ class DevelopersController < ApplicationController
   def create
     @developer = Developer.new(developer_params)
     if @developer.save
-      redirect_to root_path, notice: "Developer was created with success."
+      session[:user_id] = @developer.id
+      redirect_to root_path, notice: 'Developer was successfully created.'
     else
       flash.now[:alert] = "Something went wrong. Sorry for your loss of time."
       redirect_to dashboards_index_path
@@ -26,12 +27,12 @@ class DevelopersController < ApplicationController
   end
 
   def show
-    @developer = Developer.where(id: params[:id])
+    @developer = Developer.find_by(id: params[:id])
   end
 
   def update
     if @developer.update(developer_params)
-      redirect_to developers_path, notice: "Developer was created with success."
+      redirect_to developers_path, notice: "Developer was updated with success."
     else
       render :index
     end
@@ -47,6 +48,6 @@ class DevelopersController < ApplicationController
     end
 
     def developer_params
-      params.require(:developer).permit(:email, :password, :first_name, :last_name)
+      params.require(:developer).permit(:id, :email, :password, :first_name, :last_name)
     end
 end

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'developers#index'
 
   get 'index' => 'sessions#index'
-  post 'login' => 'sessions#create'
+  post 'login' => 'sessions#login'
   get 'edit' => 'sessions#edit'
   get 'new' => 'sessions#new'
   get 'show' => 'sessions#show'

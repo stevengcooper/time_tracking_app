@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
-      redirect_to developers_path, notice: "Developer was created with success."
+      redirect_to projects_path, notice: "Project was created with success."
     else
       render :index
     end

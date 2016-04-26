@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_action :set_developer, only: [:edit, :update, :destroy]
-  before_action :authenticate, except: [:new, :create]
+  before_action :authenticate, only: [:delete, :update]
 
 
   def new
@@ -11,10 +11,9 @@ class SessionsController < ApplicationController
     @developer = Developer.find(session[:user_id])
   end
 
-  def create
-    developer = Developer.find_by(email: params[:email])
-    if developer && developer.authenticate(params[:password])
-      session[:user_id] = developer.id
+  def login
+    if @developer = Developer.find_by(email: params[:email])
+      session[:user_id] = @developer.id
       redirect_to root_path, notice: "Login Great Success"
     else
       flash.now[:alert] = "Incorrect login information.  Please try again"

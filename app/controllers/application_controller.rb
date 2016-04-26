@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private def authenticate
-    redirect_to dashboards_index_path, notice: "Please Login First" unless Developer.find(session[:user_id])
+    redirect_to dashboards_index_path, notice: "Please Login First" unless Developer.find_by(id: session[:user_id])
   end
 
 end
