@@ -76,7 +76,7 @@ Main components
 	margin-right: 5%;
 	width: 44px;
 	height: 100%;
-	background: url('cd-icon-menu.svg') no-repeat center center;
+	background: url('cd-icon-menu.png') no-repeat center center;
 	background-size: 44px 44px;
 	cursor: pointer;
 
@@ -240,4 +240,11 @@ Main components
 			@include font-size(20px);
 		}
 	}
+}
+
+.alert {
+	color: white;
+}
+.notice {
+	color: white;
 }

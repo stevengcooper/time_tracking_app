@@ -1,15 +1,24 @@
 
 	<header class="cd-header">
-		<div id="cd-logo"><a href="#0">Time Tracker</a></div>
+		<div id="cd-logo">
+      <%= link_to "Time Tracker", developers_path%>
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert"><%= flash[:alert] %></div>
+      <% end %>
+    </div>
 
 		<nav class="cd-main-nav">
 			<ul>
 				<!-- inser more links here -->
-				<li><a href="#0">Home</a></li>
-				<li><a href="#0">About</a></li>
-				<li><a href="#0">Pricing</a></li>
+				<li><%= link_to "Home", developers_path if session[:user_id]%></li>
 				<li><a href="#0">Gallery</a></li>
 				<li><a href="#0">Contact</a></li>
+        <li><%= link_to "Sign Up", new_developer_path unless session[:user_id] %></li>
+				<li><%= link_to "Login", new_path unless session[:user_id]%></li>
+        <li><%= link_to "Logout", logout_path, method: :delete if session[:user_id]%></li>
 			</ul>
 		</nav> <!-- cd-main-nav -->
 	</header>
