@@ -12,11 +12,17 @@
  *
 
 
+ *= require_self
  */
 
+ @import "normalize-rails";
+ @import "reset";
  @import "bourbon";
  @import "neat";
-
+ @import "partials/variables";
+ @import "partials/mixins";
+ @import "partials/layout";
+ @import "style";
 
 .over {
   color: red;
