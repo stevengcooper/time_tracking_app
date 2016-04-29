@@ -1,0 +1,63 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ *= require_self
+ */
+
+ @import "normalize-rails";
+ @import "reset";
+ @import "bourbon";
+ @import "neat";
+ @import "partials/variables";
+ @import "partials/mixins";
+ @import "partials/layout";
+ @import "style";
+
+.over {
+  color: red;
+}
+
+
+.table-body {
+  padding-left: 60px;
+}
+.table-head {
+  padding-left: 40px;
+}
+
+.header-title {
+  color: white;
+}
+.time-page {
+  padding-left: 380px;
+  padding-bottom: 100px;
+  padding-top: 100px;
+  background-color: beige;
+
+}
+.root-page {
+  padding-left:350px;
+  padding-bottom: 100px;
+  padding-top: 100px;
+  background-color: beige;
+}
+.login-page {
+  padding-left: 520px;
+  padding-bottom: 200px;
+  padding-top: 100px;
+  background-color: beige;
+}
+.link {
+  text-decoration: none;
+}

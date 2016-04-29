@@ -1,0 +1,26 @@
+
+	<header class="cd-header">
+		<div id="cd-logo">
+      <%= link_to "Time Tracker", developers_path%>
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert"><%= flash[:alert] %></div>
+      <% end %>
+    </div>
+
+		<nav class="cd-main-nav">
+			<ul>
+				<!-- inser more links here -->
+				<li><%= link_to "Home", developers_path if session[:user_id]%></li>
+        <li> <%= link_to "Create Project", new_project_path if session[:user_id]%> </li>
+        <li> <%= link_to "View Projects", projects_path if session[:user_id]%> </li>
+				<li><%= link_to "View Time Entries", time_entries_path if session[:user_id]%></li>
+				<li><%= link_to "New Time Entry", new_time_entry_path if session[:user_id]%></li>
+        <li><%= link_to "Sign Up", new_developer_path unless session[:user_id] %></li>
+				<li><%= link_to "Login", new_path unless session[:user_id]%></li>
+        <li><%= link_to "Logout", logout_path, method: :delete if session[:user_id] %></li>
+			</ul>
+		</nav> <!-- cd-main-nav -->
+	</header>
