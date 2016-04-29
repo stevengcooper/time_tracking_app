@@ -181,7 +181,7 @@ Main components
 	#cd-intro-background {
 		height: 100%;
 		width: 100%;
-		background: url('ocean_coast.jpg') no-repeat center center;
+		background: asset-url('ocean_coast.jpg') no-repeat center center;
 		background-size: cover;
 		box-shadow: 0 0 30px rgba(#000, .5);
 	}
