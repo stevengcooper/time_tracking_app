@@ -1,14 +1,20 @@
-<%= form_for @project do |f| %>
+<main class="cd-content">
+  <div class="cd-container">
+    <div class="form">
+      <%= form_for @project do |f| %>
 
-  <div class="form">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+        <div class="form">
+          <%= f.label "Project Name" %>
+          <%= f.text_field :name %>
+        </div>
+        <div class="form">
+          <%= f.label :allowed_hours %>
+          <%= f.text_field :allowed_hours %>
+        </div>
+        <div class="submitactions">
+          <%= f.submit "Submit"%>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="form">
-    <%= f.label :allowed_hours %>
-    <%= f.text_field :allowed_hours %>
-  </div>
-  <div class="submitactions">
-    <%= f.submit "Submit"%>
-  </div>
-<% end %>
+</main>
