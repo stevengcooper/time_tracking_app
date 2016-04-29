@@ -1,32 +1,43 @@
 
-<div class="root-page">
+<section id="cd-intro">
+  <div id="cd-table-background"></div>
+	<div id="cd-intro-tagline">
   <h1>Welcome Valient Developer</h1>
-  <div class="table-headers">
-    <% if @developers %>
-      <table class="index-table">
-        <thead>
-          <tr>
-            <th><h4>Developer Name </h4></th>
-            <th><h4>Email</h4></th>
-            <th><h4>Weekly Hours </h4></th>
-            <th colspan="9"></th>
-          </tr>
-        </thead>
+    <div class="table-headers">
+      <% if @developers %>
+        <table cellspacing="0" cellpadding="0">
+          <thead>
+            <section class="parent">
+              <tr>
+                <th class="child child-one"><h4>Developer Name </h4></th>
+                <th class="child child-two"><h4>Email</h4></th>
+                <th class="child child-three"><h4>Weekly Hours </h4></th>
+              </tr>
+            </section>
+          </thead>
+          <br>
 
-        <tbody>
-          <% @developers.each do |developer| %>
-            <tr>
-              <td><%= developer.name %></td>
-              <td><%= developer.email %></td>
-              <td class="<%= "over" if developer.over_forty? %>"><%= developer.weekly_hours %></td>
-              <td><button><%= link_to 'Edit', edit_developer_path(developer) if Developer.find_by(id: session[:user_id])%></button></td>
-              <% if developer.weekly_hours == 0 && Developer.find_by(id: session[:id])%>
-                <td><button><%= link_to 'Destroy', developer, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
-              <% end %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% end %>
+          <tbody>
+            <% @developers.each do |developer| %>
+              <tr>
+                <td class="child child-one"><%= developer.name %></td>
+                <td class="child child-two"><%= developer.email %></td>
+                <div class="child child-three">
+                  <td class="<%= "over" if developer.over_forty? %>"><%= developer.weekly_hours %></td>
+                  <td><button><%= link_to 'Edit', edit_developer_path(developer) if Developer.find_by(id: session[:user_id])%></button></td>
+                  <% if developer.weekly_hours == 0 && Developer.find_by(id: session[:id])%>
+                    <td><button><%= link_to 'Destroy', developer, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+                  <% end %>
+                </div>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
   </div>
-</div>
+</section>
+<main class="cd-content">
+  <div class="cd-container">
+    <h2>Time Waits for Nobody</h2>
+</main> <!-- cd-content -->
