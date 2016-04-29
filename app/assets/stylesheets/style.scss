@@ -36,6 +36,9 @@ Modules - reusable parts of our design
 	@include span-columns(10);
 	@include shift(1);
 }
+.cd-table {
+	@include shift(1);
+}
 
 /* --------------------------------
 Main components
@@ -201,7 +204,6 @@ Main components
 		@include outer-container(800px);
 	}
 	.parent {
-		@include padding(20px null);
 		@include fill-parent;
 		@include row(table);
 		color: inherit;

@@ -1,30 +1,40 @@
-<div class="root-page">
-  <h1>Projects.where(Work needs to be done)</h1>
+<section id="cd-intro">
+  <div id="cd-table-background"></div>
+	<div id="cd-intro-tagline">
+    <h1>Here Lies Your Team's Projects</h1>
+    <div class="table-headers">
+      <% if @projects %>
+      <table cellspacing="0" cellpadding="0">
+        <thead>
+          <section class="parent">
+            <tr>
+              <th class="child child--one">Project Name </th>
+              <th class="child child--two">Maximum Hours </th>
+              <th class="child child-three">Hours Logged </th>
+            </tr>
+          </thead>
 
-  <% if @projects %>
-    <table>
-      <thead>
-        <tr>
-          <th>Project Name </th>
-          <th>Maximum Hours </th>
-          <th>Hours Logged </th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @projects.each do |project| %>
-          <tr>
-            <td><%= project.name %></td>
-            <td><%= project.allowed_hours %></td>
-            <td class="<%= "over" if project.over_maximum? %>"><%= project.hours_logged %></td>
-            <td><%= link_to 'Edit', edit_project_path(project) %></td>
-            <% if project.hours_logged == 0 %>
-              <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <tbody>
+            <% @projects.each do |project| %>
+              <tr>
+                <td class="child child--one"><%= project.name %></td>
+                <td class="child child--two"><%= project.allowed_hours %></td>
+                <div class="child child-three">
+                  <td class="<%= "over" if project.over_maximum? %>"><%= project.hours_logged %></td>
+                </div>
+                <td><button><%= link_to 'Edit', edit_project_path(project) %></button></td>
+                <% if project.hours_logged == 0 %>
+                  <td><button><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+                <% end %>
+              </tr>
             <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
-</div>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</section>
+<main class="cd-content">
+  <div class="cd-container">
+    <h2>Time Waits for Nobody</h2>
+</main> <!-- cd-content -->
