@@ -1,16 +1,23 @@
-<h1>Edit your Login Information </h1>
-<%= form_for @developer, url: {action: "update"}, html: {class: "nifty_form"} do |f| %>
-  <div class="form">
-    <%= email_field_tag :email, nil, placeholder: "Email" %>
-  </div>
-  <div class = "form">
-    <%= password_field_tag :password, nil, placeholder: "Password" %>
-  </div>
-  <div class = "form">
-    <%= submit_tag "Update" %>
-  </div>
-<% end %>
-<br>
-<div class="links">
-  <%= link_to "Home", developers_path %>
-</div>
+
+<section id="cd-intro">
+		<div id="cd-intro-background"></div>
+		<div id="cd-intro-tagline">
+      <h1>Edit Your Information</h1>
+		</div> <!-- cd-intro-tagline -->
+	</section> <!-- #cd-intro -->
+
+  <main class="cd-content">
+    <div class="cd-container">
+      <%= form_for @developer, url: {action: "update"} do |f| %>
+        <div class="form">
+          <%= email_field_tag :email, nil, placeholder: "Email" %>
+        </div>
+        <div class = "form">
+          <%= password_field_tag :password, nil, placeholder: "Password" %>
+        </div>
+        <div class = "form">
+          <%= submit_tag "Update" %>
+        </div>
+      <% end %>
+    </div>
+  </main>

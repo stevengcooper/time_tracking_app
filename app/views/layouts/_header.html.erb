@@ -14,11 +14,13 @@
 			<ul>
 				<!-- inser more links here -->
 				<li><%= link_to "Home", developers_path if session[:user_id]%></li>
-				<li><a href="#0">Gallery</a></li>
-				<li><a href="#0">Contact</a></li>
+        <li> <%= link_to "Create Project", new_project_path if session[:user_id]%> </li>
+        <li> <%= link_to "View Projects", projects_path if session[:user_id]%> </li>
+				<li><%= link_to "View Time Entries", time_entries_path if session[:user_id]%></li>
+				<li><%= link_to "New Time Entry", new_time_entry_path if session[:user_id]%></li>
         <li><%= link_to "Sign Up", new_developer_path unless session[:user_id] %></li>
 				<li><%= link_to "Login", new_path unless session[:user_id]%></li>
-        <li><%= link_to "Logout", logout_path, method: :delete if session[:user_id]%></li>
+        <li><%= link_to "Logout", logout_path, method: :delete if session[:user_id] %></li>
 			</ul>
 		</nav> <!-- cd-main-nav -->
 	</header>

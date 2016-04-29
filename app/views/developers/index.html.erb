@@ -1,23 +1,4 @@
 
-<header class="centered-navigation" role="banner">
-  <div class="centered-navigation-wrapper">
-    <a href="javascript:void(0)" class="mobile-logo">
-      <%= image_tag asset_url("Time-Tracking-300x300.png"), id: "time"%>
-    <a href="javascript:void(0)" id="js-centered-navigation-mobile-menu" class="centered-navigation-mobile-menu">Developer Options</a>
-    <nav role="navigation">
-      <ul id="js-centered-navigation-menu" class="centered-navigation-menu show">
-        <span class="nav-link"><h4>Projects</h3></span>
-        <span class="nav-link"><%= link_to "View your Projects", projects_path %></span>
-        <span class="nav-link"><%= link_to "Create New Project", new_project_path %></span>
-        <span class="nav-link"><h3>Time Entries</h3></span>
-        <span class="nav-link"><%= link_to "View Your Time Entries", time_entries_path %></span>
-        <span class="nav-link"><%= link_to "New Time Entry", new_time_entry_path %></span>
-        <span class="nav-link logo">
-        </span>
-      </ul>
-    </nav>
-  </div>
-</header>
 <div class="root-page">
   <h1>Welcome Valient Developer</h1>
   <div class="table-headers">
@@ -38,7 +19,7 @@
               <td><%= developer.name %></td>
               <td><%= developer.email %></td>
               <td class="<%= "over" if developer.over_forty? %>"><%= developer.weekly_hours %></td>
-              <td><button><%= link_to 'Edit', edit_developer_path(developer)%></button></td>
+              <td><button><%= link_to 'Edit', edit_developer_path(developer) if Developer.find_by(id: session[:user_id])%></button></td>
               <% if developer.weekly_hours == 0 && Developer.find_by(id: session[:id])%>
                 <td><button><%= link_to 'Destroy', developer, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
               <% end %>
